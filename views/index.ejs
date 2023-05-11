@@ -1,1 +1,180 @@
+<div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+	<div class="col-12 col-lg-6">
+		<img src="/www/test/img/new-hero.png" width="607" height="510" class="d-block mx-lg-auto img-fluid" loading="lazy" alt="Cooking">
+	</div>
 
+	<div class="col-12 col-lg-6">
+		<h1 class="display-5 fw-bold mb-3">Discover your new music taste!</h1>
+		<p class="lead">
+		Take a deep dive into your favorite artists discography and see what others think! Make playlists of your favorite vibes and share them with your friends!
+		</p>
+		
+		<div class="d-g gap-2 d-md-flex justify-content-md-start">
+			<a href="/www/test/profile" class="btn btn-primary btn-dark btn-lg px-4 me-md-2">Profile</a>
+			<br>
+			<a href="/www/test/submit" class="btn btn-primary btn-dark btn-lg px-4 me-md-2">New Playlist</a>
+			<br>			
+	</div>
+</div>
+
+<!-- Categories Start -->
+
+	<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+	
+		<% if(categories != '') { %>
+			<% categories.forEach(function(category, index) { %>
+				<a href="/www/test/categories/<%- category.name %>" class="col text-center category__link">
+					<div class="category__img shadow">
+						<img src="/www/test/img/<%- category.image %>" alt="<%- category.name %>" loading="lazy">
+					</div>
+				<div class="pt-1"><%- category.name %></div>
+				</a>
+			<% }) %>
+		<% } %>
+
+		<a href="/www/test/categories" class="col text-center category__link">
+			<div class="category__img shadow">
+				<img src="/www/test/img/pink-floyd.png" alt="View All" Loading="lazy">
+			</div>
+			<div class="pt-1">View All</div>
+		</a>
+	</div>
+<!-- Categories End -->
+
+<!-- Latest Start -->
+
+<section class="pb-4 pt-4">
+	<div class="d-flex mb-2 align-items-center">
+		<h2>Latest Playlists</h2>
+		<a href="/www/test/explore-latest" class="ms-auto">View More</a>
+	</div>
+
+	<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+		
+
+		<% if(combo != '') { %>	
+			<% combo.latest.forEach(function(playlist, index) { %>
+			<a href="/www/test/playlists/<%= playlist._id %>" class="col text-center category__link">
+			<div class="category__img category__img--large shadow">
+				<img src="/www/test/uploads/<%= playlist.image %>" alt="<%= playlist.name %>" loading="lazy">
+			</div>
+			<div class="pt-1"><%= playlist.name %></div>
+		</a>
+			<% }) %>
+		<% } %>
+	
+	</div>
+</section>
+
+<!-- Latest End -->
+
+<section class="pb-4 pt-4">
+	<div class="d-flex mb-2 align-items-center">
+		<h2>Playlists with the hits!</h2>
+		<a href="/www/test/categories/Hits" class="ms-auto">View More</a>
+	</div>
+
+	<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+		
+
+		<% if(combo != '') { %>	
+			<% combo.hits.forEach(function(playlist, index){ %>
+			<a href="/www/test/playlists/<%= playlist._id %>" class="col text-center category__link">
+			<div class="category__img category__img--large shadow">
+				<img src="/www/test/uploads/<%= playlist.image %>" alt="<%= playlist.name %>" loading="lazy">
+			</div>
+			<div class="pt-1"><%= playlist.name %></div>
+		</a>
+			<% }) %>
+			<% } else { %>
+			<p>No Items Found.</P>
+		<% } %>
+	</div>
+</section>
+
+
+<section class="pb-4 pt-4">
+	<div class="d-flex mb-2 align-items-center">
+		<h2>Playlists with some hits and some deep cuts!</h2>
+		<a href="/www/test/categories/HitsNMiss" class="ms-auto">View More</a>
+	</div>
+
+	<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+		
+
+		<% if(combo != '') { %>	
+			<% combo.hitsnmiss.forEach(function(playlist, index){ %>
+			<a href="/www/test/playlists/<%= playlist._id %>" class="col text-center category__link">
+			<div class="category__img category__img--large shadow">
+				<img src="/www/test/uploads/<%= playlist.image %>" alt="<%= playlist.name %>" loading="lazy">
+			</div>
+			<div class="pt-1"><%= playlist.name %></div>
+		</a>
+			<% }) %>
+			<% } else { %>
+			<p>No Items Found.</P>
+		<% } %>
+	</div>
+</section>
+
+
+<section class="pb-4 pt-4">
+	<div class="d-flex mb-2 align-items-center">
+		<h2>Playlists with the deep cuts!</h2>
+		<a href="/www/test/categories/Misses" class="ms-auto">View More</a>
+	</div>
+
+	<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+		
+
+		<% if(combo != '') { %>	
+			<% combo.misses.forEach(function(playlist, index){ %>
+			<a href="/www/test/playlists/<%= playlist._id %>" class="col text-center category__link">
+			<div class="category__img category__img--large shadow">
+				<img src="/www/test/uploads/<%= playlist.image %>" alt="<%= playlist.name %>" loading="lazy">
+			</div>
+			<div class="pt-1"><%= playlist.name %></div>
+		</a>
+			<% }) %>
+			<% } else { %>
+			<p>No Items Found.</P>
+		<% } %>
+	</div>
+</section>
+
+<section class="pb-4 pt-4">
+	<div class="d-flex mb-2 align-items-center">
+		<h2>Playlists with something else to offer...</h2>
+		<a href="/www/test/categories/Other" class="ms-auto">View More</a>
+	</div>
+
+	<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+		
+
+		<% if(combo != '') { %>	
+			<% combo.other.forEach(function(playlist, index){ %>
+			<a href="/www/test/playlists/<%= playlist._id %>" class="col text-center category__link">
+			<div class="category__img category__img--large shadow">
+				<img src="/www/test/uploads/<%= playlist.image %>" alt="<%= playlist.name %>" loading="lazy">
+			</div>
+			<div class="pt-1"><%= playlist.name %></div>
+		</a>
+			<% }) %>
+			<% } else { %>
+			<p>No Items Found.</P>
+		<% } %>
+	</div>
+</section>
+<!-- submit start -->
+<section class="px-4 py-5 my-5 text-center">
+	<img src="/www/test/img/submit.png" class="d-block mx-auto mb-4 img-fluid" alt="Publish your playlist for FREE today" width="700" height="300"
+	loading="lazy">
+	<h1 class="display-5 fw-bold">Make a new mix!</h1>
+	<div class="col-lg-6 mx-auto">
+		<p class="lead mb-4">Publish your playlist in front of thousands of people and share the vibes.</p>
+		<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+			<a href="/www/test/submit" class="btn btn-primary btn-dark btn-lg">New Playlist</a>
+		</div>
+	</div>
+</section>
+<!-- submit end -->

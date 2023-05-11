@@ -1,0 +1,23 @@
+<h1>Explore Latest</h1>
+
+<section class="pb-4 pt-4">
+<div class="d-flex mb-2 align-items-center">
+<h2>Latest Playlists</h2>
+</div>
+
+<div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+
+
+<% if(latest != '') { %>
+	<% latest.forEach(function(playlist, index) { %>
+			<a href="/www/test/playlists/<%= playlist._id %>" class="col text-center category__link">
+			<div class="category__img category__img--large shadow">
+			<img src="/www/test/uploads/<%= playlist.image %>" alt="<%= playlist.name %>" loading="lazy">
+			</div>
+			<div class="pt-1"><%= playlist.name %></div>
+			</a>
+			<% }) %>
+		<% } %>
+
+		</div>
+		</section>

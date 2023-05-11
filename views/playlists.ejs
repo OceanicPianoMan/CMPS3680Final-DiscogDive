@@ -1,0 +1,53 @@
+<% if(playlist != null ) { %>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/www/test">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page"><%- playlist.name %></li>
+    </ol>
+  </nav>
+
+
+  <div class="row">
+
+    <div class="col-12 col-md-4">
+      <img src="/test/public/uploads/<%- playlist.image %>" class="img-fluid sticky-top" style="top: 20px;" alt="<%- playlist.name %>" loading="lazy">
+    </div>
+
+    <div class="col-12 col-md-8">
+      <div class="row">
+        <div class="col-12"><h1><%- playlist.name %></h1></div>
+        <div class="col-12 mb-4"><i class="bi bi-tag"></i> <%- playlist.category %></div>
+        <div class="col-12"> Made by: <%- playlist.creator %></div>
+        <div class="col-12" style="white-space: pre-line;">
+          <h4>Description</h4>
+          <%- playlist.description %>
+        </div>
+      </div>
+
+      <div class="row pt-4">
+        <div class="col-12">
+          <h4>Tag</h4>
+          <ul class="list-group list-group-flush">
+            <% playlist.tag %>
+          <li class="list-group-item"><%= playlist.tag %></li>
+        </div>
+      </div>
+
+	<div class="row pt-4">
+        <div class="col-12">
+          <h4>Songs</h4>
+          <ul class="list-group list-group-flush">
+            <% playlist.songs.forEach(function(playlist, index){ %>
+              <li class="list-group-item"><%= playlist %></li>
+            <% }) %>
+          </ul> 
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<% } else { %>
+  <p>No item found.</p>
+<% } %>

@@ -1,0 +1,114 @@
+<div class="px-4 py-5 my-5 text-center">
+<h1 class="display-5 fw-bold">Create Playlist</h1>
+<div class="col-lg-6 mx-auto">
+<p class="lead">Share your amazing playlist with thousands of people!</p>
+</div>
+</div>
+
+
+<div class="row justify-content-center">
+
+<% if(infoSubmitObj != '') { %>
+	<div class="col-8 alert alert-success" role="alert">
+		<%= infoSubmitObj %>
+		</div>
+		<% } %>
+
+
+		<div class="col-8">
+
+		<form action="/www/test/submit" enctype="multipart/form-data" method="POST">
+
+		<div class="row g-3">
+
+		<div class="col-12">
+		<label for="name" class="form-label">Playlist Name</label>
+		<input type="text" name="name" id="name" class="form-control" required>
+		</div>
+
+		<div class="col-12">
+		<label for="description" class="form-label">Playlist Description</label>
+		<textarea name="description" id="description" class="form-control" cols="30" rows="4" required></textarea>
+		</div>
+
+		<div class="col-12">
+		<label for="creator" class="form-label">Created by</label>
+		<input type="text" name="creator" id="creator" class="form-control" >
+		</div>
+
+		<div class="col-12">
+		<label for="name" class="form-label">Songlist</label><br>
+		<small>Add songs!</small>
+		<div class="songList">
+		<div class="songDiv mb-1">
+		<input type="text" name="songs" class="form-control">
+		</div>
+		</div>
+		</div>
+
+		<div class="col-12">
+		<button type="button" class="btn btn-outline-primary" id="addSongsBtn">+ Song</button>
+		</div>
+		<script>
+		let addSongsBtn = document.getElementById('addSongsBtn');
+		let songList = document.querySelector('.songList');
+		let songDiv = document.querySelectorAll('.songDiv')[0];
+
+		addSongsBtn.addEventListener('click', function(){
+				let newSongs = songDiv.cloneNode(true);
+				let input = newSongs.getElementsByTagName('input')[0];
+				input.value = '';
+				songList.appendChild(newSongs);
+				});
+</script>
+
+<div class="col-12">
+<label for="tag" class="form-label">Tags</label><br>
+<small>Example: Chill, Happy, Meloncholy</small>
+<input type="text" name="tag" id="tag" class="form-control">
+</div>
+
+<label for="category">Select Category</label>
+<select class="form-select form-control" name="category" aria-label="Category">
+<option selected>Select Category</option>
+<option value="Hits">Hits</option>
+<option value="HitsNMiss">Hits and Misses</option>
+<option value="Misses">Misses</option>
+<option value="Other">Other</option>
+</select>
+</div>
+
+<br>
+
+<div class="col-12">
+<label for="image">Playlist Image</label>
+<input type="file" class="form-control" name="image" accept="image/*">
+</div>
+
+<br>
+
+
+
+<div class="col-12">
+<button type="submit" class="btn btn-primary">Make Playlist</button>
+</div>
+
+
+</div>
+
+</form>
+
+</div>
+
+<script>
+let addSongsBtn = document.getElementById('addSongsBtn');
+let songList = document.querySelector('.songList');
+let songDiv = document.querySelectorAll('.songDiv')[0];
+
+addSongBtn.addEventListener('click', function(){
+		let newSongs = songDiv.cloneNode(true);
+		let input = newSongs.getElementsByTagName('input')[0];
+		input.value = '';
+		songList.appendChild(newSongs);
+		});
+</script>
